@@ -28,6 +28,12 @@ const productSchema = new Schema({
         default: 0
     },
 
+    type: {
+        type: String,
+        enum: ['Oferta', 'Nuevo', 'Común'],
+        default: ''
+    },
+
     active: {
         type: Boolean,
         default: true
