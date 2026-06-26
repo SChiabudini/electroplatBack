@@ -12,4 +12,4 @@ const productCategorySchema = new Schema({
     }
 });
 
-module.exports = model('ProductCategory', productCategorySchema);
+module.exports = model('productCategory', productCategorySchema);

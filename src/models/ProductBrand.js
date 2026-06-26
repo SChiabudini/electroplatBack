@@ -12,4 +12,4 @@ const productBrandSchema = new Schema({
     }
 });
 
-module.exports = model('ProductBrand', productBrandSchema);
+module.exports = model('productBrand', productBrandSchema);

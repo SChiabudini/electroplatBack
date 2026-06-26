@@ -3,7 +3,7 @@ const Product = require('../../../models/Product.js');
 
 const getAllProductsCtrl = async () => {
 
-    const allProducts = await Product.find();
+    const allProducts = await Product.find().populate('brand').populate('category');
     return allProducts.reverse();
 };
 
