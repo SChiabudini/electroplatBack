@@ -1,9 +1,9 @@
 require('../../../db.js');
 const Product = require('../../../models/Product.js');
 
-const getAllProductsCtrl = async () => {
+const getAllProductsCtrl = async (type) => {
 
-    const allProducts = await Product.find().populate('brand').populate('category');
+    const allProducts = await Product.find(type ? { type } : {}).populate('brand').populate('category');
     return allProducts.reverse();
 };
 
