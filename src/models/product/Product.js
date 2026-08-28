@@ -1,16 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const productSchema = new Schema({
-    brand: { 
-        type: Schema.Types.ObjectId,
-        ref: 'productBrand',
-        default: null
-    },
 
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: 'productCategory',
-        default: null
+    name: {
+        type: String,
+        required: true
     },
 
     description: {
@@ -18,20 +12,42 @@ const productSchema = new Schema({
         required: true
     },
 
-    image: {
-        type: String,
+    brand: { 
+        type: Schema.Types.ObjectId,
+        ref: 'productBrand',
         required: true
+    },
+
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'productCategory',
+        required: true
+    },
+
+    subcategory: {
+        type: Schema.Types.ObjectId,
+        ref: 'productSubcategory',
+        default: null
     },
 
     price: {
         type: Number,
+        required: true
+    },
+
+    salePrice: {
+        type: Number,
         default: 0
     },
 
-    type: {
+    images: [{
+        type: String
+    }],
+
+    shipping: {
         type: String,
-        enum: ['Oferta', 'Nuevo', 'Común'],
-        default: ''
+        enum: ['standard', 'special', 'pickUpOnly'],
+        required: true
     },
 
     active: {
