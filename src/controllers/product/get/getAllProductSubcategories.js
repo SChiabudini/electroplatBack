@@ -1,5 +1,5 @@
 require('../../../db.js');
-const ProductSubcategory = require('../../../models/ProductSubcategory.js');
+const ProductSubcategory = require('../../../models/product/ProductSubcategory.js');
 
 const getAllProductSubcategoriesCtrl = async () => {
 

@@ -1,5 +1,5 @@
 require('../../../db.js');
-const ProductBrand = require('../../../models/ProductBrand.js');
+const ProductBrand = require('../../../models/product/ProductBrand.js');
 
 const getAllProductsBrandsCtrl = async () => {
 

@@ -1,5 +1,5 @@
 
-const Product = require('../../../models/Product.js');
+const Product = require('../../../models/product/Product.js');
 const getBrandByName = require('./getBrandByName.js');
 const getCategoryByName = require('./getCategoryByName.js');
 

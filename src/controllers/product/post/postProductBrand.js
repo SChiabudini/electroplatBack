@@ -1,4 +1,4 @@
-const ProductBrand = require('../../../models/ProductBrand.js');
+const ProductBrand = require('../../../models/product/ProductBrand.js');
 
 const postCtrl = async (name) => {
   

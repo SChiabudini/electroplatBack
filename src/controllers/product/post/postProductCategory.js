@@ -1,4 +1,4 @@
-const ProductCategory = require('../../../models/ProductCategory.js');
+const ProductCategory = require('../../../models/product/ProductCategory.js');
 
 const postCtrl = async (name) => {
   
