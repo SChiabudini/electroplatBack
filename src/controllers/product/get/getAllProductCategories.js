@@ -1,10 +1,10 @@
 require('../../../db.js');
 const ProductCategory = require('../../../models/ProductCategory.js');
 
-const getAllProductsCategoriesCtrl = async () => {
+const getAllProductCategoriesCtrl = async () => {
 
-    const allProductsCategories = await ProductCategory.find();
-    return allProductsCategories.reverse();
+    const allProductCategories = await ProductCategory.find();
+    return allProductCategories.reverse();
 };
 
-module.exports = getAllProductsCategoriesCtrl;
+module.exports = getAllProductCategoriesCtrl;

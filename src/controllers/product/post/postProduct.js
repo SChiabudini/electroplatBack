@@ -3,8 +3,10 @@ const getBrands = require('../get/getAllProductBrands.js');
 const postBrand = require('./postProductBrand.js');
 const getCategories = require('../get/getAllProductCategories.js');
 const postCategory = require('./postProductCategory.js');
+const getSubcategories = require('../get/getAllProductSubcategories.js');
+const postSubcategory = require('./postProductSubcategory.js');
 
-const postCtrl = async (brand, category, description, image, price, type) => {
+const postCtrl = async (name, description, brand, category, subcategory, price, salePrice, images, shipping) => {
   
     const brands = await getBrands();
     let existingBrand = brands.find(
@@ -24,13 +26,34 @@ const postCtrl = async (brand, category, description, image, price, type) => {
         existingCategory = await postCategory(category);
     };
 
+    let existingSubcategory = null;
+
+    if (subcategory) {
+        const subcategories = await getSubcategories();
+
+        existingSubcategory = subcategories.find(
+            s => s.name.toLowerCase() === subcategory.toLowerCase() &&
+                 s.category.toString() === existingCategory._id.toString()
+        );
+
+        if (!existingSubcategory) {
+            existingSubcategory = await postSubcategory(
+                subcategory,
+                existingCategory._id
+            );
+        }
+    }
+
     const product = {
+        name,
+        description,
         brand: existingBrand._id,
         category: existingCategory._id,
-        description,
-        image,
+        subcategory: existingSubcategory._id ?? null,
         price,
-        type
+        salePrice,
+        images,
+        shipping
     }
 
     const newProduct = await Product.create(product);
