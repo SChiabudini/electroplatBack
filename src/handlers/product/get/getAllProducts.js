@@ -10,7 +10,9 @@ const getAllProductsHandler = async (req, res) => {
             type && typeof type !== "string" ||
             brand && typeof brand !== "string" ||
             category && typeof category !== "string" ||
-            subcategory && typeof subcategory !== "string"
+            subcategory && typeof subcategory !== "string" ||
+            offer && typeof offer !== "string" ||
+            sort && typeof sort !== "string"
         ){
             return res.status(400).send({ error: 'Incorrect DataType' });
         }
