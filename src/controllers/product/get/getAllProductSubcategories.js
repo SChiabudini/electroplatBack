@@ -3,7 +3,7 @@ const ProductSubcategory = require('../../../models/product/ProductSubcategory.j
 
 const getAllProductSubcategoriesCtrl = async () => {
 
-    const allProductCategories = await ProductSubcategory.find();
+    const allProductCategories = await ProductSubcategory.find().populate('category');
     return allProductCategories.reverse();
 };
 
