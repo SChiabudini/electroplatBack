@@ -2,12 +2,11 @@ const getController = require('../../../controllers/product/get/getAllProducts.j
 
 const getAllProductsHandler = async (req, res) => {
 
-    const { type, brand, category, subcategory, offer, sort } = req.query;
+    const { brand, category, subcategory, offer, sort } = req.query;
 
     try {
 
         if(
-            type && typeof type !== "string" ||
             brand && typeof brand !== "string" ||
             category && typeof category !== "string" ||
             subcategory && typeof subcategory !== "string" ||
@@ -17,7 +16,7 @@ const getAllProductsHandler = async (req, res) => {
             return res.status(400).send({ error: 'Incorrect DataType' });
         }
 
-        const allProducts = await getController(type, brand, category, subcategory, offer, sort);
+        const allProducts = await getController(brand, category, subcategory, offer, sort);
 
         res.status(200).send(allProducts);
 

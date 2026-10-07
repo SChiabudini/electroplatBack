@@ -5,7 +5,6 @@ const getCategoryByName = require('./getCategoryByName.js');
 const getSubcategoryByName = require('./getSubcategoryByName.js');
 
 const getAllProductsCtrl = async (
-    type,
     brand,
     category,
     subcategory,
@@ -13,8 +12,6 @@ const getAllProductsCtrl = async (
     sort
 ) => {
     const filters = {};
-
-    if (type) filters.type = type;
 
     if (brand) {
         const brandDoc = await getBrandByName(brand);
