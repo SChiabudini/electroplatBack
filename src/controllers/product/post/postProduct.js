@@ -6,7 +6,7 @@ const postCategory = require('./postProductCategory.js');
 const getSubcategories = require('../get/getAllProductSubcategories.js');
 const postSubcategory = require('./postProductSubcategory.js');
 
-const postCtrl = async (name, description, brand, category, subcategory, price, salePrice, images, shipping) => {
+const postCtrl = async (name, description, brand, category, subcategory, price, salePrice, images) => {
   
     const brands = await getBrands();
     let existingBrand = brands.find(
@@ -52,8 +52,7 @@ const postCtrl = async (name, description, brand, category, subcategory, price, 
         subcategory: existingSubcategory._id ?? null,
         price,
         salePrice,
-        images,
-        shipping
+        images
     }
 
     const newProduct = await Product.create(product);

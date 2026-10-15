@@ -7,12 +7,12 @@ const postHandler = async (req, res) => {
 
         const {
             name, description, brand, category, subcategory,
-            price, salePrice, images, shipping
+            price, salePrice, images
         } = req.body;
 
         const newProduct = await postCtrl(
             name, description, brand, category, subcategory,
-            price, salePrice, images, shipping
+            price, salePrice, images
         );
 
         return res.status(200).send(newProduct);

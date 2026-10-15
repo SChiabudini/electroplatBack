@@ -3,7 +3,7 @@ const validateProduct = ({
     price, salePrice, images, shipping
 }) => {
 
-    if (!name || !description || !brand || !category || price == null || !images || !shipping)
+    if (!name || !description || !brand || !category || price == null || !images)
         throw new Error('Missing Data');
 
     if (
@@ -15,8 +15,7 @@ const validateProduct = ({
         typeof price !== 'number' ||
         (salePrice != null && typeof salePrice !== 'number') ||
         !Array.isArray(images) ||
-        !images.every(image => typeof image === 'string') ||
-        !['standard', 'special', 'pickUpOnly'].includes(shipping)
+        !images.every(image => typeof image === 'string')
     )
         throw new Error('Incorrect DataType');
 };

@@ -44,12 +44,6 @@ const productSchema = new Schema({
         type: String
     }],
 
-    shipping: {
-        type: String,
-        enum: ['standard', 'special', 'pickUpOnly'],
-        required: true
-    },
-
     active: {
         type: Boolean,
         default: true
