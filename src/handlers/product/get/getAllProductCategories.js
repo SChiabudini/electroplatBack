@@ -1,4 +1,4 @@
-getController = require('../../../controllers/product/get/getAllProductCategories');
+const getController = require('../../../controllers/product/get/getAllProductCategories.js');
 
 const getAllProductCategoriesHandler = async (req, res) => {
 

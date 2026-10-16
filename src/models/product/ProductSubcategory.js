@@ -18,4 +18,6 @@ const productSubcategorySchema = new Schema({
     }
 });
 
+productSubcategorySchema.index({ name: 1, category: 1 }, { unique: true });
+
 module.exports = model('productSubcategory', productSubcategorySchema);

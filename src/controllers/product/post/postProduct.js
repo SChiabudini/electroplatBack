@@ -33,7 +33,7 @@ const postCtrl = async (name, description, brand, category, subcategory, price, 
 
         existingSubcategory = subcategories.find(
             s => s.name.toLowerCase() === subcategory.toLowerCase() &&
-                 s.category.toString() === existingCategory._id.toString()
+            s.category._id.toString() === existingCategory._id.toString()
         );
 
         if (!existingSubcategory) {
